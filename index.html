@@ -222,10 +222,10 @@
                 
                 <!-- Section 1: Original Content Analysis -->
                 <div class="section">
-                    <h2>🎯 Original Content Analysis</h2>
+                    <h2>Original Content Analysis</h2>
                     
                     <div class="question-group">
-                        <div class="question">Paste your original text here:</div>
+                        <div class="question">Paste your original words here:</div>
                         <textarea name="original_text" class="large-textarea" placeholder="Paste the text that needs a soft rewrite..."></textarea>
                     </div>
                     
@@ -267,7 +267,7 @@
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="issues" value="passive_voice" id="passive_voice">
-                                <label for="passive_voice">Too much passive voice</label>
+                                <label for="passive_voice">Passive voice</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="issues" value="long_sentences" id="long_sentences">
@@ -287,11 +287,11 @@
                 
                 <!-- Section 2: Voice Discovery -->
                 <div class="section">
-                    <h2>🎤 Voice Discovery</h2>
+                    <h2>Voice Discovery</h2>
                     
                     <div class="question-group">
                         <div class="question">If you were explaining this same message to a close friend over coffee, how would you say it?</div>
-                        <div class="subtext">Write it exactly as you'd speak it - include pauses, contractions, casual phrases</div>
+                        <div class="subtext">Write it exactly as you'd speak it, include pauses, contractions, casual phrases</div>
                         <textarea name="casual_version" class="large-textarea" placeholder="So basically what I'm trying to say is..."></textarea>
                     </div>
                     
@@ -299,20 +299,17 @@
                         <div class="question">What's your relationship to the reader?</div>
                         <select name="reader_relationship">
                             <option value="">Select relationship...</option>
-                            <option value="close_colleague">Close colleague/peer</option>
-                            <option value="respected_superior">Respected superior</option>
-                            <option value="client_partner">Client/business partner</option>
+                            <option value="respected_superior">Founder/Colleague</option>
+                            <option value="client_partner">Client/Business Partner</option>
                             <option value="potential_customer">Potential customer</option>
-                            <option value="team_member">Team member</option>
-                            <option value="friend">Friend</option>
-                            <option value="stranger_professional">Professional stranger</option>
-                            <option value="community">Community/audience</option>
+                            <option value="friend">Friend/Friend</option>
+                            <option value="community">Community/Audience</option>
                         </select>
                     </div>
                     
                     <div class="question-group">
                         <div class="question">What emotion do you want them to feel when reading this?</div>
-                        <div class="subtext">Be specific - not just "positive" but what kind of positive?</div>
+                        <div class="subtext">Be specific, not just "positive" or good vibes</div>
                         <textarea name="desired_emotion" placeholder="I want them to feel..."></textarea>
                     </div>
                     
@@ -358,7 +355,7 @@
                 
                 <!-- Section 3: Breath & Rhythm -->
                 <div class="section">
-                    <h2>🌬️ Breath & Rhythm</h2>
+                    <h2>Breath & Rhythm</h2>
                     
                     <div class="question-group">
                         <div class="question">Read your original text aloud. Where do you naturally want to pause?</div>
@@ -371,16 +368,14 @@
                         <div class="rating-scale">
                             <div style="width: 100%;">
                                 <div class="rating-labels">
-                                    <span>Urgent & Quick</span>
-                                    <span>Measured & Thoughtful</span>
-                                    <span>Slow & Contemplative</span>
+                                    <span>Urgent</span>
+                                    <span>Thoughtful</span>
+                                    <span>Slow</span>
                                 </div>
                                 <div class="rating-numbers">
                                     <input type="radio" name="pace" value="1" id="pace1"><label for="pace1">1</label>
                                     <input type="radio" name="pace" value="2" id="pace2"><label for="pace2">2</label>
                                     <input type="radio" name="pace" value="3" id="pace3"><label for="pace3">3</label>
-                                    <input type="radio" name="pace" value="4" id="pace4"><label for="pace4">4</label>
-                                    <input type="radio" name="pace" value="5" id="pace5"><label for="pace5">5</label>
                                 </div>
                             </div>
                         </div>
@@ -395,11 +390,11 @@
                 
                 <!-- Section 4: Context & Constraints -->
                 <div class="section">
-                    <h2>⚖️ Context & Constraints</h2>
+                    <h2>Context & Constraints</h2>
                     
                     <div class="question-group">
                         <div class="question">What's the setting/context for this communication?</div>
-                        <textarea name="context" placeholder="This is for... The situation is... The timing is..."></textarea>
+                        <textarea name="context" placeholder="This is for... The situation is..."></textarea>
                     </div>
                     
                     <div class="question-group">
@@ -416,8 +411,6 @@
                                     <input type="radio" name="formality" value="1" id="form1"><label for="form1">1</label>
                                     <input type="radio" name="formality" value="2" id="form2"><label for="form2">2</label>
                                     <input type="radio" name="formality" value="3" id="form3"><label for="form3">3</label>
-                                    <input type="radio" name="formality" value="4" id="form4"><label for="form4">4</label>
-                                    <input type="radio" name="formality" value="5" id="form5"><label for="form5">5</label>
                                 </div>
                             </div>
                         </div>
@@ -431,7 +424,7 @@
                 
                 <!-- Section 5: Rewrite Focus -->
                 <div class="section">
-                    <h2>✨ Rewrite Focus</h2>
+                    <h2>Rewrite Focus</h2>
                     
                     <div class="question-group">
                         <div class="question">What's ONE thing you want to prioritize in the rewrite?</div>
@@ -461,14 +454,17 @@
                 </div>
                 
                 <div class="inspiration-box">
-                    <h3>💡 Rewrite Inspiration Prompts</h3>
+                    <h3>Rewrite Inspiration Prompts</h3>
                     <div class="prompt-examples">
-                        Try thinking: "How would I explain this to someone I respect but feel comfortable with?" • "What would I say if I only had 30 seconds to get this across?" • "How can I make this feel like a conversation, not a presentation?" • "What's the human story behind this message?"
+                        Try thinking: "How would I explain this to someone I respect but feel comfortable with?" 
+                        "What would I say if I only had 30 seconds to get this across?" 
+                        "How can I make this feel like a conversation, not a presentation?" 
+                        "What's the human story behind this message?"
                     </div>
                 </div>
                 
                 <div class="action-buttons">
-                    <button type="button" class="btn" onclick="generateSummary()">Generate Rewrite Brief</button>
+                    <button type="button" class="btn" onclick="generateSummary()">Generate Rewrite</button>
                     <button type="button" class="btn btn-secondary" onclick="clearForm()">Start Over</button>
                 </div>
                 
