@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Rewrites Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .form-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 400;
+        }
+        
+        .question-group {
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .question {
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .subtext {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        textarea, input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Georgia', serif;
+            font-size: 14px;
+            line-height: 1.5;
+            transition: border-color 0.3s ease;
+            resize: vertical;
+        }
+        
+        textarea:focus, input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            min-height: 100px;
+        }
+        
+        .large-textarea {
+            min-height: 150px;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+        
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        
+        .rating-numbers {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        
+        .rating-numbers input[type="radio"] {
+            width: auto;
+            transform: scale(1.3);
+        }
+        
+        .action-buttons {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f8f9fa;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+        
+        .inspiration-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #fdcb6e;
+        }
+        
+        .inspiration-box h3 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        
+        .prompt-examples {
+            font-size: 0.9em;
+            color: #636e72;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Soft Rewrites Template</h1>
+            <p>Bringing breath and authenticity back to your words</p>
+        </div>
+        
+        <div class="form-content">
+            <form id="softRewritesForm">
+                
+                <!-- Section 1: Original Content Analysis -->
+                <div class="section">
+                    <h2>🎯 Original Content Analysis</h2>
+                    
+                    <div class="question-group">
+                        <div class="question">Paste your original text here:</div>
+                        <textarea name="original_text" class="large-textarea" placeholder="Paste the text that needs a soft rewrite..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What type of writing is this?</div>
+                        <select name="content_type">
+                            <option value="">Select type...</option>
+                            <option value="business_email">Business Email</option>
+                            <option value="marketing_copy">Marketing Copy</option>
+                            <option value="academic">Academic Writing</option>
+                            <option value="blog_post">Blog Post</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="proposal">Proposal/Pitch</option>
+                            <option value="personal">Personal Communication</option>
+                            <option value="creative">Creative Writing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What feels "off" about this writing?</div>
+                        <div class="subtext">Check all that apply - what makes it feel stiff or artificial?</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="too_formal" id="too_formal">
+                                <label for="too_formal">Too formal/stiff</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="corporate_speak" id="corporate_speak">
+                                <label for="corporate_speak">Corporate jargon</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="no_personality" id="no_personality">
+                                <label for="no_personality">Lacks personality</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="robotic" id="robotic">
+                                <label for="robotic">Sounds robotic</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="passive_voice" id="passive_voice">
+                                <label for="passive_voice">Too much passive voice</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="long_sentences" id="long_sentences">
+                                <label for="long_sentences">Sentences too long</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="no_emotion" id="no_emotion">
+                                <label for="no_emotion">Emotionally flat</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="issues" value="disconnected" id="disconnected">
+                                <label for="disconnected">Feels disconnected</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Voice Discovery -->
+                <div class="section">
+                    <h2>🎤 Voice Discovery</h2>
+                    
+                    <div class="question-group">
+                        <div class="question">If you were explaining this same message to a close friend over coffee, how would you say it?</div>
+                        <div class="subtext">Write it exactly as you'd speak it - include pauses, contractions, casual phrases</div>
+                        <textarea name="casual_version" class="large-textarea" placeholder="So basically what I'm trying to say is..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What's your relationship to the reader?</div>
+                        <select name="reader_relationship">
+                            <option value="">Select relationship...</option>
+                            <option value="close_colleague">Close colleague/peer</option>
+                            <option value="respected_superior">Respected superior</option>
+                            <option value="client_partner">Client/business partner</option>
+                            <option value="potential_customer">Potential customer</option>
+                            <option value="team_member">Team member</option>
+                            <option value="friend">Friend</option>
+                            <option value="stranger_professional">Professional stranger</option>
+                            <option value="community">Community/audience</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What emotion do you want them to feel when reading this?</div>
+                        <div class="subtext">Be specific - not just "positive" but what kind of positive?</div>
+                        <textarea name="desired_emotion" placeholder="I want them to feel..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">Describe your natural speaking style</div>
+                        <div class="subtext">How do people describe the way you communicate?</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="direct" id="direct">
+                                <label for="direct">Direct & straightforward</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="warm" id="warm">
+                                <label for="warm">Warm & encouraging</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="humorous" id="humorous">
+                                <label for="humorous">Uses humor</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="analytical" id="analytical">
+                                <label for="analytical">Analytical & detailed</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="storyteller" id="storyteller">
+                                <label for="storyteller">Storyteller</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="enthusiastic" id="enthusiastic">
+                                <label for="enthusiastic">Enthusiastic</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="thoughtful" id="thoughtful">
+                                <label for="thoughtful">Thoughtful & reflective</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="speaking_style" value="conversational" id="conversational">
+                                <label for="conversational">Conversational</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Breath & Rhythm -->
+                <div class="section">
+                    <h2>🌬️ Breath & Rhythm</h2>
+                    
+                    <div class="question-group">
+                        <div class="question">Read your original text aloud. Where do you naturally want to pause?</div>
+                        <div class="subtext">Mark the spots where you'd take a breath or where emphasis feels natural</div>
+                        <textarea name="natural_pauses" placeholder="I notice I want to pause after... The emphasis naturally falls on..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What's the pace you want for this message?</div>
+                        <div class="rating-scale">
+                            <div style="width: 100%;">
+                                <div class="rating-labels">
+                                    <span>Urgent & Quick</span>
+                                    <span>Measured & Thoughtful</span>
+                                    <span>Slow & Contemplative</span>
+                                </div>
+                                <div class="rating-numbers">
+                                    <input type="radio" name="pace" value="1" id="pace1"><label for="pace1">1</label>
+                                    <input type="radio" name="pace" value="2" id="pace2"><label for="pace2">2</label>
+                                    <input type="radio" name="pace" value="3" id="pace3"><label for="pace3">3</label>
+                                    <input type="radio" name="pace" value="4" id="pace4"><label for="pace4">4</label>
+                                    <input type="radio" name="pace" value="5" id="pace5"><label for="pace5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What words or phrases feel most important to you?</div>
+                        <div class="subtext">The core message you don't want to lose in translation</div>
+                        <textarea name="core_message" placeholder="The most important thing I want them to understand is..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Context & Constraints -->
+                <div class="section">
+                    <h2>⚖️ Context & Constraints</h2>
+                    
+                    <div class="question-group">
+                        <div class="question">What's the setting/context for this communication?</div>
+                        <textarea name="context" placeholder="This is for... The situation is... The timing is..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">Are there any professional/cultural boundaries you need to respect?</div>
+                        <div class="subtext">What level of informality is appropriate here?</div>
+                        <div class="rating-scale">
+                            <div style="width: 100%;">
+                                <div class="rating-labels">
+                                    <span>Very Formal</span>
+                                    <span>Professional but Warm</span>
+                                    <span>Casual & Friendly</span>
+                                </div>
+                                <div class="rating-numbers">
+                                    <input type="radio" name="formality" value="1" id="form1"><label for="form1">1</label>
+                                    <input type="radio" name="formality" value="2" id="form2"><label for="form2">2</label>
+                                    <input type="radio" name="formality" value="3" id="form3"><label for="form3">3</label>
+                                    <input type="radio" name="formality" value="4" id="form4"><label for="form4">4</label>
+                                    <input type="radio" name="formality" value="5" id="form5"><label for="form5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">What action or response do you want from the reader?</div>
+                        <textarea name="desired_action" placeholder="I want them to..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Section 5: Rewrite Focus -->
+                <div class="section">
+                    <h2>✨ Rewrite Focus</h2>
+                    
+                    <div class="question-group">
+                        <div class="question">What's ONE thing you want to prioritize in the rewrite?</div>
+                        <select name="rewrite_priority">
+                            <option value="">Choose primary focus...</option>
+                            <option value="warmth">Adding warmth & humanity</option>
+                            <option value="clarity">Improving clarity & flow</option>
+                            <option value="engagement">Increasing engagement</option>
+                            <option value="authenticity">Sounding more authentic</option>
+                            <option value="energy">Adding energy & enthusiasm</option>
+                            <option value="connection">Building connection</option>
+                            <option value="persuasion">Enhancing persuasiveness</option>
+                            <option value="simplicity">Simplifying language</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">Any specific words or phrases you want to keep exactly as they are?</div>
+                        <div class="subtext">Technical terms, brand names, or phrases that are perfect as-is</div>
+                        <textarea name="keep_unchanged" placeholder="Please keep these exact words/phrases..."></textarea>
+                    </div>
+                    
+                    <div class="question-group">
+                        <div class="question">Any words or phrases you definitely want to change or avoid?</div>
+                        <textarea name="avoid_words" placeholder="Please change or avoid these words/phrases..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="inspiration-box">
+                    <h3>💡 Rewrite Inspiration Prompts</h3>
+                    <div class="prompt-examples">
+                        Try thinking: "How would I explain this to someone I respect but feel comfortable with?" • "What would I say if I only had 30 seconds to get this across?" • "How can I make this feel like a conversation, not a presentation?" • "What's the human story behind this message?"
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button type="button" class="btn" onclick="generateSummary()">Generate Rewrite Brief</button>
+                    <button type="button" class="btn btn-secondary" onclick="clearForm()">Start Over</button>
+                </div>
+                
+                <!-- Summary Section (Initially Hidden) -->
+                <div id="summary-section" style="display: none; margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px; border: 2px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">📋 Your Rewrite Brief</h3>
+                    <div id="summary-content"></div>
+                    <button type="button" class="btn" onclick="copyBrief()" style="margin-top: 20px;">Copy Brief</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function generateSummary() {
+            const formData = new FormData(document.getElementById('softRewritesForm'));
+            const data = {};
+            
+            // Collect form data
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Generate summary
+            let summary = `<div style="font-family: Georgia, serif; line-height: 1.6;">`;
+            
+            if (data.original_text) {
+                summary += `<h4 style="color: #667eea; margin-bottom: 10px;">Original Text:</h4>
+                <div style="background: white; padding: 15px; border-left: 4px solid #ddd; margin-bottom: 20px; font-style: italic;">${data.original_text}</div>`;
+            }
+            
+            summary += `<h4 style="color: #667eea; margin-bottom: 10px;">Rewrite Instructions:</h4>`;
+            
+            if (data.casual_version) {
+                summary += `<p><strong>Natural voice reference:</strong> "${data.casual_version}"</p>`;
+            }
+            
+            if (data.desired_emotion) {
+                summary += `<p><strong>Target emotion:</strong> ${data.desired_emotion}</p>`;
+            }
+            
+            if (data.reader_relationship) {
+                summary += `<p><strong>Reader relationship:</strong> ${data.reader_relationship.replace('_', ' ')}</p>`;
+            }
+            
+            if (data.rewrite_priority) {
+                summary += `<p><strong>Primary focus:</strong> ${data.rewrite_priority.replace('_', ' ')}</p>`;
+            }
+            
+            if (data.formality) {
+                const formalityLevel = data.formality == 1 ? 'Very formal' : 
+                                     data.formality == 2 ? 'Moderately formal' :
+                                     data.formality == 3 ? 'Professional but warm' :
+                                     data.formality == 4 ? 'Casual professional' : 'Very casual';
+                summary += `<p><strong>Formality level:</strong> ${formalityLevel}</p>`;
+            }
+            
+            if (data.speaking_style && Array.isArray(data.speaking_style)) {
+                summary += `<p><strong>Natural speaking style:</strong> ${data.speaking_style.join(', ').replace(/_/g, ' ')}</p>`;
+            }
+            
+            if (data.core_message) {
+                summary += `<p><strong>Core message to preserve:</strong> ${data.core_message}</p>`;
+            }
+            
+            if (data.keep_unchanged) {
+                summary += `<p><strong>Keep unchanged:</strong> ${data.keep_unchanged}</p>`;
+            }
+            
+            if (data.avoid_words) {
+                summary += `<p><strong>Avoid:</strong> ${data.avoid_words}</p>`;
+            }
+            
+            if (data.desired_action) {
+                summary += `<p><strong>Desired reader action:</strong> ${data.desired_action}</p>`;
+            }
+            
+            summary += `</div>`;
+            
+            document.getElementById('summary-content').innerHTML = summary;
+            document.getElementById('summary-section').style.display = 'block';
+            document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function copyBrief() {
+            const summaryContent = document.getElementById('summary-content').innerText;
+            navigator.clipboard.writeText(summaryContent).then(() => {
+                alert('Brief copied to clipboard!');
+            });
+        }
+        
+        function clearForm() {
+            document.getElementById('softRewritesForm').reset();
+            document.getElementById('summary-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
